@@ -1,13 +1,11 @@
-import { createBoid } from './boid';
-const randomLocation = state => ({
-  x: Math.floor(Math.random() * state.boundaries.x),
-  y: Math.floor(Math.random() * state.boundaries.y),
-});
+import { createBoid } from './model';
+import { angleToVector } from '../core';
+import { randomLocation } from '../generators';
 
 const randomBoid = state =>
   createBoid({
     location: randomLocation(state),
-    velocity: { x: 1, y: 1 },
+    acceleration: angleToVector(0, 0.1),
   });
 
 const randomBoids = (state, n) =>
