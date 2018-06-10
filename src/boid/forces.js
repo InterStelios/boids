@@ -1,5 +1,6 @@
 import { addVectors, subtractVectors } from '../core';
-const steer = (boid = {}) => {
+
+export const steer = (boid = {}) => {
   const { desiredLocation, location, velocity, acceleration } = boid;
   if (desiredLocation) {
     const desired = subtractVectors(desiredLocation, location, 4);
@@ -12,5 +13,3 @@ const steer = (boid = {}) => {
   }
   return boid;
 };
-
-export { steer };

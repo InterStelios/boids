@@ -27,11 +27,9 @@ const configureCanvas = ({
   return canvas;
 };
 
-const init = (next, bodyAttrs, canvasAttrs) => {
+export const init = (next, bodyAttrs, canvasAttrs) => {
   configureBody(bodyAttrs);
   const canvas = configureCanvas(canvasAttrs);
   invertYCoordinates(canvas);
   next(canvas);
 };
-
-export { init };

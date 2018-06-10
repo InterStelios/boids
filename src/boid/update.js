@@ -22,7 +22,5 @@ const move = (boid, state) => {
 const applyForce = state => (boid, force) =>
   Object.assign({}, boid, force(boid, state));
 
-const updateBoid = (boid, state) =>
+export const updateBoid = (boid, state) =>
   [steer, move].reduce(applyForce(state), boid);
-
-export { updateBoid };

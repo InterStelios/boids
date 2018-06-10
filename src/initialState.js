@@ -6,6 +6,4 @@ const defaultState = {
   },
 };
 
-const state = (overrides = {}) => Object.assign(defaultState, overrides);
-
-export { state };
+export const state = (overrides = {}) => Object.assign(defaultState, overrides);

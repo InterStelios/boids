@@ -1,4 +1,4 @@
-const drawAxis = (canvas, state) => {
+export const drawAxis = (canvas, state) => {
   const ctx = canvas.getContext('2d');
   ctx.beginPath();
   ctx.moveTo(0, state.boundaries.y / 2);
@@ -12,5 +12,3 @@ const drawAxis = (canvas, state) => {
   ctx.strokeStyle = 'greenyellow';
   ctx.stroke();
 };
-
-export { drawAxis };

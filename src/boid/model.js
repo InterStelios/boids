@@ -7,6 +7,6 @@ const defaultProps = {
   size: 30,
   velocity: defaultVector,
 };
-const createBoid = (props = {}) => Object.assign({}, defaultProps, props);
 
-export { createBoid };
+export const createBoid = (props = {}) =>
+  Object.assign({}, defaultProps, props);

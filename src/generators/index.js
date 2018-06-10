@@ -1,6 +1,4 @@
-const randomLocation = state => ({
-  x: Math.floor(Math.random() * state.boundaries.x),
-  y: Math.floor(Math.random() * state.boundaries.y),
+export const randomLocation = boundaries => ({
+  x: Math.floor(Math.random() * boundaries.x),
+  y: Math.floor(Math.random() * boundaries.y),
 });
-
-export { randomLocation };

@@ -2,15 +2,13 @@ import { createBoid } from './model';
 import { angleToVector } from '../core';
 import { randomLocation } from '../generators';
 
-const randomBoid = state =>
+export const randomBoid = state =>
   createBoid({
-    location: randomLocation(state),
+    location: randomLocation(state.boundaries),
     acceleration: angleToVector(0, 0.1),
   });
 
-const randomBoids = (state, n) =>
+export const randomBoids = (state, n) =>
   Array(n)
     .fill(null)
     .map(randomBoid.bind(null, state));
-
-export { randomLocation, randomBoid, randomBoids };

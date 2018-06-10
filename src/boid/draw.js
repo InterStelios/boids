@@ -1,4 +1,4 @@
-const drawBoid = canvas => boid => {
+export const drawBoid = canvas => boid => {
   const { size, location, direction } = boid;
   const ctx = canvas.getContext('2d');
   ctx.save();
@@ -12,5 +12,3 @@ const drawBoid = canvas => boid => {
   ctx.fill();
   ctx.restore();
 };
-
-export { drawBoid };
