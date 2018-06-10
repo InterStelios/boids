@@ -37,10 +37,14 @@ export const normalise = ({ x = 0, y = 0 } = {}) => {
 
 export const toRadians = angle => (angle * Math.PI) / 180;
 
-export const angleToVector = (angle, multiplier) => ({
-  x: multiplier * Math.cos(toRadians(angle)),
-  y: multiplier * Math.sin(toRadians(angle)),
-});
+export const angleToVector = (angle, limit) =>
+  limitMagnitude(
+    {
+      x: Math.cos(toRadians(angle)),
+      y: Math.sin(toRadians(angle)),
+    },
+    limit,
+  );
 
 export const limitMagnitude = (
   { x = 0, y = 0 },
@@ -53,3 +57,7 @@ export const limitMagnitude = (
   }
   return { x, y };
 };
+
+export const getRandomInt = max => Math.floor(Math.random() * Math.floor(max));
+
+export const getRandomFloat = max => Math.random() * max;

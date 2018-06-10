@@ -8,7 +8,12 @@ const wrap = (location, state) => ({
 
 const move = (boid, state) => {
   const nextDirection = direction(boid.velocity);
-  const nextVelocity = addVectors(boid.velocity, boid.acceleration, 4);
+  const nextVelocity = addVectors(
+    boid.velocity,
+    boid.acceleration,
+    boid.maxSpeed,
+  );
+
   const nextLocation = addVectors(boid.location, nextVelocity);
   const nextWrappedLocation = wrap(nextLocation, state, boid.size);
 

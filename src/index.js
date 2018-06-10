@@ -8,7 +8,7 @@ import { randomBoids } from './boid/generators';
 
 init(canvas => {
   let nextState = state({
-    boids: randomBoids(state(), 10),
+    boids: randomBoids(state(), 3),
   });
 
   const getMousePos = canvas => evt => {
