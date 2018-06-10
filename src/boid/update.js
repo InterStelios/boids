@@ -1,5 +1,5 @@
 import { addVectors, direction } from '../core';
-import { steer } from './forces';
+import { seek } from './forces';
 
 const wrap = (location, state) => ({
   x: location.x % state.boundaries.x,
@@ -28,4 +28,4 @@ const applyForce = state => (boid, force) =>
   Object.assign({}, boid, force(boid, state));
 
 export const updateBoid = (boid, state) =>
-  [steer, move].reduce(applyForce(state), boid);
+  [seek, move].reduce(applyForce(state), boid);
