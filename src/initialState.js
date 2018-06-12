@@ -1,8 +1,9 @@
 const defaultState = {
   boids: [],
+  target: null,
   boundaries: {
-    x: 800,
-    y: 600,
+    x: 1280,
+    y: 1024,
   },
 };
 

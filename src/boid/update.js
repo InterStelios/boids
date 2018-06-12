@@ -20,12 +20,19 @@ const move = (boid, state) => {
   return Object.assign(boid, {
     velocity: nextVelocity,
     direction: nextDirection,
-    location: nextWrappedLocation,
+    location: nextLocation,
   });
 };
 
-const applyForce = state => (boid, force) =>
+const updateTarget = (boid, state) =>
+  state.target
+    ? Object.assign({}, boid, {
+        target: state.target,
+      })
+    : state;
+
+const update = state => (boid, force) =>
   Object.assign({}, boid, force(boid, state));
 
 export const updateBoid = (boid, state) =>
-  [seek, move].reduce(applyForce(state), boid);
+  [updateTarget, seek, move].reduce(update(state), boid);

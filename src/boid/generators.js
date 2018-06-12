@@ -7,9 +7,9 @@ export const randomBoid = state =>
     Object.assign(
       {},
       {
-        maxSpeed: 1,
+        maxSpeed: 5,
         location: randomLocation(state.boundaries),
-        acceleration: angleToVector(getRandomInt(360), getRandomFloat(1)),
+        acceleration: angleToVector(getRandomInt(360), 5),
       },
     ),
   );
