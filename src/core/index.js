@@ -1,25 +1,25 @@
-import { defaultVector } from './defaults';
+import { defaultVector } from "./defaults";
 
 export const addVectors = (v1 = vectorDefault, v2 = vectorDefault, limit) =>
   limitMagnitude(
     {
       x: v1.x + v2.x,
-      y: v1.y + v2.y,
+      y: v1.y + v2.y
     },
-    limit,
+    limit
   );
 
 export const subtractVectors = (
   v1 = vectorDefault,
   v2 = vectorDefault,
-  limit,
+  limit
 ) =>
   limitMagnitude(
     {
       x: v1.x - v2.x,
-      y: v1.y - v2.y,
+      y: v1.y - v2.y
     },
-    limit,
+    limit
   );
 
 export const direction = ({ x = 0, y = 0 } = {}) => -Math.atan2(x, y);
@@ -41,14 +41,14 @@ export const angleToVector = (angle, limit) =>
   limitMagnitude(
     {
       x: Math.cos(toRadians(angle)),
-      y: Math.sin(toRadians(angle)),
+      y: Math.sin(toRadians(angle))
     },
-    limit,
+    limit
   );
 
 export const limitMagnitude = (
   { x = 0, y = 0 },
-  limit = Number.MAX_SAFE_INTEGER,
+  limit = Number.MAX_SAFE_INTEGER
 ) => {
   const mag = magnitude({ x, y });
   if (mag > limit) {

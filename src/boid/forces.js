@@ -1,4 +1,4 @@
-import { addVectors, subtractVectors } from '../core';
+import { addVectors, subtractVectors } from "../core";
 
 export const seek = (boid = {}) => {
   const {
@@ -7,7 +7,7 @@ export const seek = (boid = {}) => {
     velocity,
     acceleration,
     maxSpeed,
-    maxSteerForce,
+    maxSteerForce
   } = boid;
   if (target) {
     const desired = subtractVectors(target, location, maxSpeed);
@@ -15,7 +15,7 @@ export const seek = (boid = {}) => {
     const nextAcceleration = addVectors(acceleration, steer);
 
     return Object.assign(boid, {
-      acceleration: nextAcceleration,
+      acceleration: nextAcceleration
     });
   }
   return boid;

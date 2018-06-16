@@ -1,9 +1,9 @@
-import { invertYCoordinates } from './canvas';
+import { invertYCoordinates } from "./canvas";
 
 const configureBody = ({
-  width = '100%',
-  height = '100%',
-  colour = 'black',
+  width = "100%",
+  height = "100%",
+  colour = "black"
 } = {}) => {
   window.document.body.style.background = colour;
   window.document.body.style.width = width;
@@ -13,11 +13,11 @@ const configureBody = ({
 const configureCanvas = ({
   width = 1280,
   height = 1024,
-  colour = 'black',
-  border = 'dotted thin greenyellow',
+  colour = "black",
+  border = "dotted thin greenyellow"
 } = {}) => {
-  const canvas = window.document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
+  const canvas = window.document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
   canvas.style.border = border;
   canvas.width = width;
   canvas.height = height;

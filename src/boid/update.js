@@ -1,9 +1,9 @@
-import { addVectors, direction } from '../core';
-import { seek } from './forces';
+import { addVectors, direction } from "../core";
+import { seek } from "./forces";
 
 const wrap = (location, state) => ({
   x: location.x % state.boundaries.x,
-  y: location.y % state.boundaries.y,
+  y: location.y % state.boundaries.y
 });
 
 const move = (boid, state) => {
@@ -11,7 +11,7 @@ const move = (boid, state) => {
   const nextVelocity = addVectors(
     boid.velocity,
     boid.acceleration,
-    boid.maxSpeed,
+    boid.maxSpeed
   );
 
   const nextLocation = addVectors(boid.location, nextVelocity);
@@ -20,14 +20,14 @@ const move = (boid, state) => {
   return Object.assign(boid, {
     velocity: nextVelocity,
     direction: nextDirection,
-    location: nextLocation,
+    location: nextLocation
   });
 };
 
 const updateTarget = (boid, state) =>
   state.target
     ? Object.assign({}, boid, {
-        target: state.target,
+        target: state.target
       })
     : state;
 

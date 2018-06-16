@@ -1,4 +1,4 @@
-import { defaultVector } from '../core/defaults';
+import { defaultVector } from "../core/defaults";
 const defaultProps = {
   maxSpeed: 1,
   acceleration: defaultVector,
@@ -7,7 +7,7 @@ const defaultProps = {
   target: null,
   maxSteerForce: 0.01,
   size: 20,
-  velocity: defaultVector,
+  velocity: defaultVector
 };
 
 export const createBoid = (props = {}) =>
