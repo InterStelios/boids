@@ -5,3 +5,12 @@ export const invertYCoordinates = canvas =>
 
 export const clearCanvasForRepaint = canvas =>
   get2DContext(canvas).clearRect(0, 0, canvas.width, canvas.height);
+
+export const getMousePosition = canvas => evt => {
+  const rect = canvas.getBoundingClientRect();
+
+  return {
+    x: Math.floor(evt.clientX - rect.left),
+    y: Math.floor(Math.abs(evt.clientY - rect.top - canvas.height))
+  };
+};

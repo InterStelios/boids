@@ -1,45 +1,27 @@
 import { init } from "./bootstrap";
-import { state } from "./initialState";
-import { clearCanvasForRepaint } from "./canvas";
-import { randomBoids } from "./boid/generators";
+import { initialState } from "./initialState";
+import { clearCanvasForRepaint, getMousePosition } from "./canvas";
 import { drawBoid, updateBoid } from "./boid";
 import { drawAxis } from "./axis";
 import { drawBall, updateBall } from "./ball";
 
 init(canvas => {
-  const initState = {
-    boundaries: {
-      x: canvas.width,
-      y: canvas.height
-    }
-  };
-
-  let nextState = state(
-    {
-      target: updateBall(initState),
-      boids: randomBoids(initState, 2000)
-    },
-    initState
-  );
-
-  const getMousePos = canvas => evt => {
-    const rect = canvas.getBoundingClientRect();
+  let nextState = initialState(canvas);
+  const setTarget = canvas => evt => {
     nextState = Object.assign({}, nextState, {
-      target: {
-        x: Math.floor(evt.clientX - rect.left),
-        y: Math.floor(Math.abs(evt.clientY - rect.top - canvas.height))
-      }
+      target: getMousePosition(canvas)(evt)
     });
   };
 
-  canvas.addEventListener("click", getMousePos(canvas), false);
-
+  // Subscriptions
+  canvas.addEventListener("click", setTarget(canvas), false);
   setInterval(() => {
     nextState = Object.assign({}, nextState, {
       target: updateBall(nextState)
     });
   }, 2000);
 
+  // Simulation loop
   (function step() {
     clearCanvasForRepaint(canvas);
     nextState = Object.assign({}, nextState, {
