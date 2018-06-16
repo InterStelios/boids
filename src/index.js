@@ -40,7 +40,7 @@ init(canvas => {
     });
   }, 2000);
 
-  setInterval(() => {
+  (function step() {
     clearCanvasForRepaint(canvas);
     nextState = Object.assign({}, nextState, {
       boids: nextState.boids.map(boid => updateBoid(boid, nextState))
@@ -49,5 +49,7 @@ init(canvas => {
     drawAxis(canvas, nextState);
     nextState.boids.forEach(drawBoid(canvas));
     drawBall(canvas, nextState);
-  }, 16);
+
+    requestAnimationFrame(step);
+  })();
 });
