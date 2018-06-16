@@ -1,5 +1,4 @@
 import { createBoid } from "./model";
-import { angleToVector, getRandomInt, getRandomFloat } from "../core";
 import { randomLocation } from "../generators";
 
 export const randomBoid = state =>
@@ -7,9 +6,8 @@ export const randomBoid = state =>
     Object.assign(
       {},
       {
-        maxSpeed: 5,
-        location: randomLocation(state.boundaries),
-        acceleration: angleToVector(getRandomInt(360), 5)
+        maxSpeed: 7,
+        location: randomLocation(state.boundaries)
       }
     )
   );

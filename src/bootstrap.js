@@ -11,8 +11,8 @@ const configureBody = ({
 };
 
 const configureCanvas = ({
-  width = 1280,
-  height = 1024,
+  width = 1200,
+  height = 900,
   colour = "black",
   border = "dotted thin greenyellow"
 } = {}) => {

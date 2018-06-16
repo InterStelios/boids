@@ -1,10 +1,13 @@
 const defaultState = {
   boids: [],
   target: null,
-  boundaries: {
-    x: 1280,
-    y: 1024
-  }
+  boundaries: null
 };
 
-export const state = (overrides = {}) => Object.assign(defaultState, overrides);
+export const state = (...overrides) =>
+  overrides
+    ? overrides.reduce(
+        (state, overrides) => Object.assign({}, state, overrides),
+        defaultState
+      )
+    : defaultState;

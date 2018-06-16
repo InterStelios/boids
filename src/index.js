@@ -7,11 +7,20 @@ import { drawAxis } from "./axis";
 import { drawBall, updateBall } from "./ball";
 
 init(canvas => {
-  const initState = state();
-  let nextState = state({
-    target: updateBall(initState),
-    boids: randomBoids(initState, 1500)
-  });
+  const initState = {
+    boundaries: {
+      x: canvas.width,
+      y: canvas.height
+    }
+  };
+
+  let nextState = state(
+    {
+      target: updateBall(initState),
+      boids: randomBoids(initState, 2000)
+    },
+    initState
+  );
 
   const getMousePos = canvas => evt => {
     const rect = canvas.getBoundingClientRect();

@@ -1,6 +1,6 @@
 import { defaultVector } from "./defaults";
 
-export const addVectors = (v1 = vectorDefault, v2 = vectorDefault, limit) =>
+export const addVectors = (v1 = defaultVector, v2 = defaultVector, limit) =>
   limitMagnitude(
     {
       x: v1.x + v2.x,
@@ -10,8 +10,8 @@ export const addVectors = (v1 = vectorDefault, v2 = vectorDefault, limit) =>
   );
 
 export const subtractVectors = (
-  v1 = vectorDefault,
-  v2 = vectorDefault,
+  v1 = defaultVector,
+  v2 = defaultVector,
   limit
 ) =>
   limitMagnitude(
