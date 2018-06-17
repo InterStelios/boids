@@ -25,6 +25,6 @@ export const initialState = canvas => {
 
   return state(canvas)({
     target: updateBall(initialState),
-    boids: randomBoids(initialState, 2000)
+    boids: randomBoids(initialState, 4000)
   });
 };

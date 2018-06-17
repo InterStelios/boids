@@ -6,7 +6,7 @@ export const randomBoid = state =>
     Object.assign(
       {},
       {
-        maxSpeed: 7,
+        maxSpeed: 12,
         location: randomLocation(state.boundaries)
       }
     )

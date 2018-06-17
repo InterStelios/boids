@@ -19,7 +19,7 @@ init(canvas => {
     nextState = Object.assign({}, nextState, {
       target: updateBall(nextState)
     });
-  }, 2000);
+  }, 5000);
 
   // Simulation loop
   (function step() {

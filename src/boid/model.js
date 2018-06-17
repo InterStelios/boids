@@ -6,7 +6,7 @@ const defaultProps = {
   location: defaultVector,
   target: null,
   maxSteerForce: 0.01,
-  size: 20,
+  size: 10,
   velocity: defaultVector
 };
 
